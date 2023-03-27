@@ -110,17 +110,19 @@ def find_plaintext(cipher):
 #   -> eventually turn this into it's own class 
 # ----------------------------------------------------------------------------------
 
-def lfsr(state):
-    return
-
-# LFSR w/ polynomial x^4 + x^5 + x^7 +1 
-state = [0, 0, 0, 1, 1, 0, 1, 0, 0]
-fpoly = [4, 5, 7]
-L = LFSR(initstate=state,fpoly=fpoly,counter_start_zero=False)
-print('count \t state \t\toutbit \t seq')
-print('-'*50)
-for _ in range(30):
+def lfsr(state,fpoly):
+    L = LFSR(initstate=state,fpoly=fpoly,counter_start_zero=False)
+    print('count \t state \t\toutbit \t seq')
+    print('-'*50)
+    for _ in range(30):
     print(L.count,L.state,'',L.outbit,L.seq,sep='\t')
     L.next()
-print('-'*30)
-print('Output: ',L.seq)
+    print('-'*30)
+    print('Output: ',L.seq)
+
+# test functions
+#----------------------------------------------
+# LFSR w/ polynomial x^4 + x^5 + x^7 +1 
+state1 = [0, 0, 0, 1, 1, 0, 1, 0, 0]
+fpoly1 = [4, 5, 7]
+lfsr_fpoly1 = lfsr(state1, fpoly1)
