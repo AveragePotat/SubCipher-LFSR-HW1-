@@ -1,3 +1,20 @@
+# TITLE: Substitution Cipher & LFSRs
+
+# Created by: Kena D
+# Created on: 2023-03-23 
+# Last editted on: 2023-03-26
+
+# GOALS (PERSONAL DUE DATE 2023-03-29):
+#   1. Change code to take in any ciphertext
+#   2. Use TDD (Test-driven-development) & classes
+#   3. Automate the find_plaintext function
+#   4. Create my own LFSR function to understand it better
+
+# imported libraries
+import numpy as np
+import matplotlib
+from pylfsr import LFSR as L
+
 # initializing ciphertext
 cipherText = '''CKCLBAELDK DGJ LFNSMBCA CGQEGCCAI JCUCKFS DGJ LACDBC SAFJMLBI BHDB LHDGQC BHC
 OFAKJ DGJ NDVC FMA KEUCI CDIECA BHC LCKK SHFGCI OC JCSCGJ FG BHC LFNSMBCAI MICJ EG
@@ -22,7 +39,6 @@ cipher_len = len(cipherText2)
 # initializing empty variables
 az_freq = {}
 
-
 # finding the letter frequency for each letters A to Z
 def letter_freq(cipher, freq_arr, freq_len):
     # placeholders variables
@@ -44,33 +60,50 @@ def letter_freq(cipher, freq_arr, freq_len):
 
     return freq_arr
 
+# finding the plaintext
+def find_plaintext(cipher):
+    # Looking at patterns a few attempts at a time.
+    # Each section (EX attempt1 & attempt2) are the ciphers/plaintext I
+    #   was trying to find at the moment
+    attempt1 = cipher.replace('C','e')
+    attempt2 = attempt1.replace('B','t')
+
+    attempt3 = attempt2.replace('D','a') 
+    attempt4 = attempt3.replace('A','r') 
+    attempt5 = attempt4.replace('Q','g')
+
+    attempt6 = attempt5.replace('G','n')
+    attempt7 = attempt6.replace('L','c')
+    attempt8 = attempt7.replace('E','i')
+    attempt9 = attempt8.replace('I','s')
+    
+    attempt10 = attempt9.replace('J','d')
+    attempt11 = attempt10.replace('K','l')
+    attempt12 = attempt11.replace('F','o')
+    
+    attempt13 = attempt12.replace('O','w')
+    attempt14 = attempt13.replace('T','b')
+    attempt15 = attempt14.replace('N','m')
+    attempt16 = attempt15.replace('S','p')
+    attempt17 = attempt16.replace('M','u')
+    attempt18 = attempt17.replace('U','v')
+    
+    attempt19 = attempt18.replace('R','y')
+    attempt20 = attempt19.replace('P','f')
+    attempt21 = attempt20.replace('V','k')
+    attempt22 = attempt21.replace('Y','x')
+    attempt23 = attempt22.replace('H','h')
+
+    print("\n" + attempt23)
+
+# lfsr
+
+L.info()
+
+def lfsr(state):
+    return
 
 # test functions
 #----------------------------------------------
 # lett_perc = letter_freq(cipherText2, az_freq, cipher_len)
-
-# Looking at patterns 1 attempt at a time
-attempt1 = cipherText.replace('C','e')
-attempt2 = attempt1.replace('B','t')
-attempt3 = attempt2.replace('D','a') 
-attempt4 = attempt3.replace('A','r') 
-attempt5 = attempt4.replace('Q','g')
-attempt6 = attempt5.replace('G','n')
-attempt7 = attempt6.replace('L','c')
-attempt8 = attempt7.replace('E','i')
-attempt9 = attempt8.replace('I','s')
-attempt10 = attempt9.replace('J','d')
-attempt11 = attempt10.replace('K','l')
-attempt12 = attempt11.replace('F','o')
-attempt13 = attempt12.replace('O','w')
-attempt14 = attempt13.replace('T','b')
-attempt15 = attempt14.replace('N','m')
-attempt16 = attempt15.replace('S','p')
-attempt17 = attempt16.replace('M','u')
-attempt18 = attempt17.replace('U','v')
-attempt19 = attempt18.replace('R','y')
-attempt20 = attempt19.replace('P','f')
-attempt21 = attempt20.replace('V','k')
-attempt22 = attempt21.replace('Y','x')
-attempt23 = attempt22.replace('H','h')
-print("\n" + attempt23)
+# find_plaintext(cipherText) 
