@@ -4,7 +4,7 @@
 
 # imported libraries
 import numpy
-from pylfsr import LFSR as L
+from pylfsr import LFSR
 
 # initializing variables
 test_str = "hello how are you doing today"
@@ -39,6 +39,7 @@ def freq_perc(freq_arr, freq_len):
     #print("Letter frequency percentage in the ciphertext is: \n " 
     #     + str(freq_arr))
 
+# LFSR function
 def count_lfsr():
     # initializing count variable
     cnt = 0
@@ -56,11 +57,26 @@ def count_lfsr():
 # ------------------------------------------------------------------------
 
 # UNDERSTANDING TRY & EXPECT FUNCTIONS 
+# --------------------
 # chars = {}
 # for char in test_str:
 #     try:chars[char] += 1
 #     except:chars[char] = 1
 
-# UNDERSTANDING .format() function
+# UNDERSTANDING .format() FUNCTION
+# --------------------
 # for key, value in chars.items():
 #     print("{} -> {}%".format(key, value/len(test_str)*100))
+
+# UNDERSTANDING pylfsr FUNCTION
+# --------------------
+# state = [1,1,1]
+# fpoly = [3,2]
+# L = LFSR(initstate=state,fpoly=fpoly,counter_start_zero=False)
+# print('count \t state \t\toutbit \t seq')
+# print('-'*50)
+# for _ in range(15):
+#     print(L.count,L.state,'',L.outbit,L.seq,sep='\t')
+#     L.next()
+# print('-'*50)
+# print('Output: ',L.seq)

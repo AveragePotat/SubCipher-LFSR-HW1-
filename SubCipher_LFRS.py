@@ -13,7 +13,11 @@
 # imported libraries
 import numpy as np
 import matplotlib
-from pylfsr import LFSR as L
+from pylfsr import LFSR
+
+# SUBSTITUTION CIPHER
+#   -> eventually turn this into it's own class 
+# ----------------------------------------------------------------------------------
 
 # initializing ciphertext
 cipherText = '''CKCLBAELDK DGJ LFNSMBCA CGQEGCCAI JCUCKFS DGJ LACDBC SAFJMLBI BHDB LHDGQC BHC
@@ -96,14 +100,27 @@ def find_plaintext(cipher):
 
     print("\n" + attempt23)
 
-# lfsr
-
-L.info()
-
-def lfsr(state):
-    return
-
 # test functions
 #----------------------------------------------
 # lett_perc = letter_freq(cipherText2, az_freq, cipher_len)
 # find_plaintext(cipherText) 
+
+
+# LFSR
+#   -> eventually turn this into it's own class 
+# ----------------------------------------------------------------------------------
+
+def lfsr(state):
+    return
+
+# LFSR w/ polynomial x^4 + x^5 + x^7 +1 
+state = [0, 0, 0, 1, 1, 0, 1, 0, 0]
+fpoly = [4, 5, 7]
+L = LFSR(initstate=state,fpoly=fpoly,counter_start_zero=False)
+print('count \t state \t\toutbit \t seq')
+print('-'*50)
+for _ in range(30):
+    print(L.count,L.state,'',L.outbit,L.seq,sep='\t')
+    L.next()
+print('-'*30)
+print('Output: ',L.seq)
